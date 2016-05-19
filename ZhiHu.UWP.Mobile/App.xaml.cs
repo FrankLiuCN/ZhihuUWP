@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -58,6 +59,7 @@ namespace Zhihu.UWP
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
+                rootFrame.Navigated += RootFrame_Navigated;
                 // 将框架放在当前窗口中
                 Window.Current.Content = rootFrame;
             }
@@ -74,7 +76,7 @@ namespace Zhihu.UWP
                 else
                 {
                     rootFrame.Navigate(typeof(AppShell));
-                    SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested; ;
+                    SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
 
                 }
 
@@ -97,17 +99,63 @@ namespace Zhihu.UWP
             Window.Current.Activate();
         }
 
-        private void App_BackRequested(object sender, BackRequestedEventArgs e)
+        private void RootFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+rootFrame.CanGoBack ?
+AppViewBackButtonVisibility.Visible :
+AppViewBackButtonVisibility.Collapsed;
+        }
+
+        bool isExit = false;
+        private async void App_BackRequested(object sender, BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             if (rootFrame == null)
                 return;
-
-            if (rootFrame.CanGoBack && e.Handled == false)
+            if (rootFrame.CurrentSourcePageType.Name != "MainPage")
             {
-                e.Handled = true;
-                rootFrame.GoBack();
+                if (rootFrame.CanGoBack && e.Handled == false)
+                {
+                    e.Handled = true;
+                    rootFrame.GoBack();
+                }
             }
+            else if (e.Handled == false)
+            {
+
+                StatusBar statusBar = StatusBar.GetForCurrentView();
+                await statusBar.ShowAsync();
+                statusBar.ForegroundColor = Colors.White; // 前景色  
+                statusBar.BackgroundOpacity = 0.9; // 透明度  
+                statusBar.ProgressIndicator.Text = "再按一次返回键退出程序。"; // 文本  
+                await statusBar.ProgressIndicator.ShowAsync();
+
+                if (isExit)
+                {
+                    App.Current.Exit();
+                }
+                else
+                {
+                    isExit = true;
+                    await Task.Run(async () =>
+                    {
+                        //Windows.Data.Xml.Dom. XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText01);  
+                        //Windows.Data.Xml.Dom.XmlNodeList elements = toastXml.GetElementsByTagName("text");  
+                        //elements[0].AppendChild(toastXml.CreateTextNode("再按一次返回键退出程序。"));  
+                        //ToastNotification toast = new ToastNotification(toastXml);  
+                        //ToastNotificationManager.CreateToastNotifier().Show(toast);       
+
+                        await Task.Delay(1500);
+                        await statusBar.ProgressIndicator.HideAsync();
+                        await statusBar.HideAsync();
+                        isExit = false;
+                    });
+                    e.Handled = true;
+                }
+            }
+
         }
 
         /// <summary>

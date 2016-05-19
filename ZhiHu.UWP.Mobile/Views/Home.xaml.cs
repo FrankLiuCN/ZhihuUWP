@@ -86,6 +86,7 @@ namespace Zhihu.UWP.Views
         private void lvQuestion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Story story = lvQuestion.SelectedItems[0] as Story;
+            //lvQuestion.SelectedIndex = -1;
             Frame root = Window.Current.Content as Frame;
             root.Navigate(typeof(AnswerPage),story );
         }

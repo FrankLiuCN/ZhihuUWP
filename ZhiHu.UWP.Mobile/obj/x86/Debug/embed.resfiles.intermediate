@@ -1,4 +1,8 @@
 App.xbf
-MainPage.xbf
+Controls\PageHeader.xbf
+Controls\QuestionAnswerControl.xbf
 Themes\Generic.xbf
-Views\SplashPage.xbf
+Views\AnswerPage.xbf
+Views\AppShell.xbf
+Views\Home.xbf
+Views\LoginPage.xbf

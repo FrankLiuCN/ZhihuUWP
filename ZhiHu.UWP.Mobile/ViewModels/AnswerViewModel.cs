@@ -37,6 +37,19 @@ namespace Zhihu.UWP.ViewModels
             IsLoading = true;
             string json = await ZhihuAPI.GetAnswer(url);
             Answer answer = await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<Answer>(json));
+
+            if (answer != null)
+            {
+                string css = "<style>"
+                        + "html{-ms-content-zooming:none;font-family:微软雅黑;}"
+                        + "body{word-break:break-all;font-size:16px;} img{width:100%;}"
+                        + "body{line-height:150%;}"
+                        + "</style>";   //基础css
+
+                //合并
+                answer.content = "<html><head>"  + css  + "</head>" + "<body>" + answer.content.Replace("<blockquote>", "<p>").Replace("</blockquote>", "</p>") + "</body></html>";  //附加css
+            }
+
             AnswerInfo = answer;
             IsLoading = false;
         }

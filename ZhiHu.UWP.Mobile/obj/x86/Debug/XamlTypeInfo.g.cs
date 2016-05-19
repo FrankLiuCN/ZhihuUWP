@@ -9,11 +9,11 @@
 
 
 
-namespace ZhiHu.UWP.Mobile
+namespace Zhihu.UWP
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-    private global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlTypeInfoProvider _provider;
+    private global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlTypeInfoProvider _provider;
 
         /// <summary>
         /// GetXamlType(Type)
@@ -22,7 +22,7 @@ namespace ZhiHu.UWP.Mobile
         {
             if(_provider == null)
             {
-                _provider = new global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByType(type);
         }
@@ -34,7 +34,7 @@ namespace ZhiHu.UWP.Mobile
         {
             if(_provider == null)
             {
-                _provider = new global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByName(fullName);
         }
@@ -49,7 +49,7 @@ namespace ZhiHu.UWP.Mobile
     }
 }
 
-namespace ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo
+namespace Zhihu.UWP.Zhihu_UWP_XamlTypeInfo
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -132,17 +132,43 @@ namespace ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
-            _typeNameTable[0] = "ZhiHu.UWP.Mobile.MainPage";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "ZhiHu.UWP.Mobile.Views.SplashPage";
+            _typeNameTable = new string[17];
+            _typeNameTable[0] = "Zhihu.UWP.Controls.PageHeader";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[2] = "Windows.UI.Xaml.UIElement";
+            _typeNameTable[3] = "Zhihu.UWP.Controls.QuestionAnswerControl";
+            _typeNameTable[4] = "Zhihu.UWP.Tool.WebViewSourceString";
+            _typeNameTable[5] = "Object";
+            _typeNameTable[6] = "String";
+            _typeNameTable[7] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[8] = "Zhihu.UWP.Views.AnswerPage";
+            _typeNameTable[9] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[10] = "Zhihu.UWP.Views.AppShell";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.Frame";
+            _typeNameTable[12] = "Zhihu.UWP.Tool.HomeItemTemplateSelector";
+            _typeNameTable[13] = "Windows.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[14] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[15] = "Zhihu.UWP.Views.Home";
+            _typeNameTable[16] = "Zhihu.UWP.Views.LoginPage";
 
-            _typeTable = new global::System.Type[4];
-            _typeTable[0] = typeof(global::ZhiHu.UWP.Mobile.MainPage);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::ZhiHu.UWP.Mobile.Views.SplashPage);
+            _typeTable = new global::System.Type[17];
+            _typeTable[0] = typeof(global::Zhihu.UWP.Controls.PageHeader);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.UIElement);
+            _typeTable[3] = typeof(global::Zhihu.UWP.Controls.QuestionAnswerControl);
+            _typeTable[4] = typeof(global::Zhihu.UWP.Tool.WebViewSourceString);
+            _typeTable[5] = typeof(global::System.Object);
+            _typeTable[6] = typeof(global::System.String);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[8] = typeof(global::Zhihu.UWP.Views.AnswerPage);
+            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[10] = typeof(global::Zhihu.UWP.Views.AppShell);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.Frame);
+            _typeTable[12] = typeof(global::Zhihu.UWP.Tool.HomeItemTemplateSelector);
+            _typeTable[13] = typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[14] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[15] = typeof(global::Zhihu.UWP.Views.Home);
+            _typeTable[16] = typeof(global::Zhihu.UWP.Views.LoginPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -177,37 +203,116 @@ namespace ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::ZhiHu.UWP.Mobile.MainPage(); }
-        private object Activate_3_SplashPage() { return new global::ZhiHu.UWP.Mobile.Views.SplashPage(); }
+        private object Activate_0_PageHeader() { return new global::Zhihu.UWP.Controls.PageHeader(); }
+        private object Activate_3_QuestionAnswerControl() { return new global::Zhihu.UWP.Controls.QuestionAnswerControl(); }
+        private object Activate_8_AnswerPage() { return new global::Zhihu.UWP.Views.AnswerPage(); }
+        private object Activate_10_AppShell() { return new global::Zhihu.UWP.Views.AppShell(); }
+        private object Activate_12_HomeItemTemplateSelector() { return new global::Zhihu.UWP.Tool.HomeItemTemplateSelector(); }
+        private object Activate_15_Home() { return new global::Zhihu.UWP.Views.Home(); }
+        private object Activate_16_LoginPage() { return new global::Zhihu.UWP.Views.LoginPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlUserType userType;
+            global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
             switch (typeIndex)
             {
 
-            case 0:   //  ZhiHu.UWP.Mobile.MainPage
-                userType = new global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+            case 0:   //  Zhihu.UWP.Controls.PageHeader
+                userType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_0_PageHeader;
+                userType.AddMemberName("HeaderContent");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 1:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 2:   //  Windows.UI.Xaml.UIElement
+                xamlType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  ZhiHu.UWP.Mobile.Views.SplashPage
-                userType = new global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_SplashPage;
+            case 3:   //  Zhihu.UWP.Controls.QuestionAnswerControl
+                userType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_3_QuestionAnswerControl;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Zhihu.UWP.Tool.WebViewSourceString
+                userType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.AddMemberName("SourceString");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  Object
+                xamlType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  String
+                xamlType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  Windows.UI.Xaml.DependencyObject
+                xamlType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Zhihu.UWP.Views.AnswerPage
+                userType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_8_AnswerPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  Zhihu.UWP.Views.AppShell
+                userType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_10_AppShell;
+                userType.AddMemberName("AppFrame");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  Windows.UI.Xaml.Controls.Frame
+                xamlType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 12:   //  Zhihu.UWP.Tool.HomeItemTemplateSelector
+                userType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
+                userType.Activator = Activate_12_HomeItemTemplateSelector;
+                userType.AddMemberName("AnswerTemplate");
+                userType.AddMemberName("QuestionTemplate");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Windows.UI.Xaml.Controls.DataTemplateSelector
+                xamlType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 14:   //  Windows.UI.Xaml.DataTemplate
+                xamlType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  Zhihu.UWP.Views.Home
+                userType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_Home;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 16:   //  Zhihu.UWP.Views.LoginPage
+                userType = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_16_LoginPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -216,11 +321,91 @@ namespace ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo
         }
 
 
+        private object get_0_PageHeader_HeaderContent(object instance)
+        {
+            var that = (global::Zhihu.UWP.Controls.PageHeader)instance;
+            return that.HeaderContent;
+        }
+        private void set_0_PageHeader_HeaderContent(object instance, object Value)
+        {
+            var that = (global::Zhihu.UWP.Controls.PageHeader)instance;
+            that.HeaderContent = (global::Windows.UI.Xaml.UIElement)Value;
+        }
+        private object get_1_WebViewSourceString_SourceString(object instance)
+        {
+            return global::Zhihu.UWP.Tool.WebViewSourceString.GetSourceString((global::Windows.UI.Xaml.DependencyObject)instance);
+        }
+        private void set_1_WebViewSourceString_SourceString(object instance, object Value)
+        {
+            global::Zhihu.UWP.Tool.WebViewSourceString.SetSourceString((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.String)Value);
+        }
+        private object get_2_AppShell_AppFrame(object instance)
+        {
+            var that = (global::Zhihu.UWP.Views.AppShell)instance;
+            return that.AppFrame;
+        }
+        private object get_3_HomeItemTemplateSelector_AnswerTemplate(object instance)
+        {
+            var that = (global::Zhihu.UWP.Tool.HomeItemTemplateSelector)instance;
+            return that.AnswerTemplate;
+        }
+        private void set_3_HomeItemTemplateSelector_AnswerTemplate(object instance, object Value)
+        {
+            var that = (global::Zhihu.UWP.Tool.HomeItemTemplateSelector)instance;
+            that.AnswerTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_4_HomeItemTemplateSelector_QuestionTemplate(object instance)
+        {
+            var that = (global::Zhihu.UWP.Tool.HomeItemTemplateSelector)instance;
+            return that.QuestionTemplate;
+        }
+        private void set_4_HomeItemTemplateSelector_QuestionTemplate(object instance, object Value)
+        {
+            var that = (global::Zhihu.UWP.Tool.HomeItemTemplateSelector)instance;
+            that.QuestionTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlMember xamlMember = null;
+            global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "Zhihu.UWP.Controls.PageHeader.HeaderContent":
+                userType = (global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Zhihu.UWP.Controls.PageHeader");
+                xamlMember = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlMember(this, "HeaderContent", "Windows.UI.Xaml.UIElement");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_PageHeader_HeaderContent;
+                xamlMember.Setter = set_0_PageHeader_HeaderContent;
+                break;
+            case "Zhihu.UWP.Tool.WebViewSourceString.SourceString":
+                userType = (global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Zhihu.UWP.Tool.WebViewSourceString");
+                xamlMember = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlMember(this, "SourceString", "String");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_1_WebViewSourceString_SourceString;
+                xamlMember.Setter = set_1_WebViewSourceString_SourceString;
+                break;
+            case "Zhihu.UWP.Views.AppShell.AppFrame":
+                userType = (global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Zhihu.UWP.Views.AppShell");
+                xamlMember = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlMember(this, "AppFrame", "Windows.UI.Xaml.Controls.Frame");
+                xamlMember.Getter = get_2_AppShell_AppFrame;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Zhihu.UWP.Tool.HomeItemTemplateSelector.AnswerTemplate":
+                userType = (global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Zhihu.UWP.Tool.HomeItemTemplateSelector");
+                xamlMember = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlMember(this, "AnswerTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_3_HomeItemTemplateSelector_AnswerTemplate;
+                xamlMember.Setter = set_3_HomeItemTemplateSelector_AnswerTemplate;
+                break;
+            case "Zhihu.UWP.Tool.HomeItemTemplateSelector.QuestionTemplate":
+                userType = (global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Zhihu.UWP.Tool.HomeItemTemplateSelector");
+                xamlMember = new global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlMember(this, "QuestionTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_4_HomeItemTemplateSelector_QuestionTemplate;
+                xamlMember.Setter = set_4_HomeItemTemplateSelector_QuestionTemplate;
+                break;
+            }
             return xamlMember;
         }
     }
@@ -274,9 +459,9 @@ namespace ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlSystemBaseType
     {
-        global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
@@ -290,7 +475,7 @@ namespace ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -482,7 +667,7 @@ namespace ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -491,7 +676,7 @@ namespace ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::ZhiHu.UWP.Mobile.ZhiHu_UWP_Mobile_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::Zhihu.UWP.Zhihu_UWP_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;
