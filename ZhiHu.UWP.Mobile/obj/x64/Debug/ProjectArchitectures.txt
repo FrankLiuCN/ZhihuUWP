@@ -1,0 +1,1 @@
+C:\Frank\SourceCode\ZhiHu.UWP\ZhiHu.UWP.Mobile\ZhiHu.UWP.Mobile.csproj;x64

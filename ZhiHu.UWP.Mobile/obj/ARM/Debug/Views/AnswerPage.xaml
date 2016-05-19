@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="Zhihu.UWP.Views.AnswerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Zhihu.UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Property="using:Zhihu.UWP.Tool"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="48"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Background="#FF135995"
+                    Orientation="Horizontal">
+            <TextBlock x:ConnectionId='3' x:Name="txtTitle"
+                       Margin="10,0"
+                       Foreground="#FFFFFF"
+                       Text="{Binding Path=AnswerInfo.question.title}"
+                       FontSize="17"
+                       VerticalAlignment="Center">
+            </TextBlock>
+        </StackPanel>
+        <RelativePanel Grid.Row="1">
+            <Rectangle VerticalAlignment="Stretch"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       Height="30"
+                       Fill="#FF135995">
+            </Rectangle>
+            <RelativePanel Background="#FFF"
+                       Margin="10,0"
+                       Height="60"
+                       BorderBrush="#FFECECEC"
+                       BorderThickness="1"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True">
+                <Ellipse x:ConnectionId='1' x:Name="imgAuthorAvatar"
+                                 Height="40" 
+                                 Width="40"
+                                 Margin="10"
+                                 HorizontalAlignment="Left">
+                    <Ellipse.Fill>
+                        <ImageBrush  Stretch="UniformToFill" 
+                                     ImageSource="{Binding Path=AnswerInfo.author.avatar_url}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:ConnectionId='2' RelativePanel.RightOf="imgAuthorAvatar"
+                           x:Name="txtUserName"
+                           FontSize="16"
+                           Text="{Binding Path=AnswerInfo.author.name}"
+                           Margin="0,10,0,0"></TextBlock>
+                <TextBlock RelativePanel.RightOf="imgAuthorAvatar"
+                           RelativePanel.Below="txtUserName"
+                           Text="{Binding Path=AnswerInfo.author.headline}"
+                           Foreground="Gray"></TextBlock>
+            </RelativePanel>
+        </RelativePanel>
+        <WebView  Grid.Row="2"
+                  Property:WebViewSourceString.SourceString="{Binding Path=AnswerInfo.content}"></WebView>
+        <ProgressRing Grid.Row="2"
+                      Margin="0,10,0,0"
+                      Height="60"
+                      Width="60"
+                      IsActive="{Binding Path=IsLoading}"/>
+        <RelativePanel Grid.Row="3" 
+                       BorderBrush="#FFECECEC"
+                       BorderThickness="0,1,0,0"></RelativePanel>
+    </Grid>
+</Page>
+

@@ -1,0 +1,51 @@
+﻿<UserControl
+    x:Class="Zhihu.UWP.Controls.QuestionAnswerControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Zhihu.UWP.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#FFFFFF"
+    d:DesignHeight="120"
+    d:DesignWidth="400">
+
+    <Grid Margin="10">
+        <RelativePanel Visibility="Collapsed">
+            <Ellipse x:Name="eTopImg"
+                     Height="20" 
+                     Width="20"
+                     Margin="10,0"
+                     HorizontalAlignment="Left">
+                <Ellipse.Fill>
+                    <ImageBrush  x:Name="imgAvatar"
+                                 Stretch="UniformToFill" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <TextBlock RelativePanel.RightOf="eTopImg"
+                       x:Name="txtFrom"
+                        Foreground="Gray">来自</TextBlock>
+            <HyperlinkButton  RelativePanel.RightOf="txtFrom"
+                                    Margin="10,-5,0,0"
+                                    Foreground="#FF0077D9">
+                <TextBlock Text="{Binding Path=actors[0].name}"                         
+                                 TextWrapping="Wrap">
+                </TextBlock>
+            </HyperlinkButton>
+            <TextBlock  Foreground="#FF0077D9"
+                        Text="{Binding Path=target.voteup_count}" 
+                        RelativePanel.AlignRightWithPanel="True">
+            </TextBlock>
+            <TextBlock RelativePanel.Below="eTopImg"
+                       FontWeight="Bold"
+                       TextWrapping="Wrap"
+                       Text="{Binding Path=target.question.title}" 
+                       x:Name="txtTitle"></TextBlock>
+            <TextBlock RelativePanel.Below="txtTitle"
+                       TextWrapping="Wrap"
+                       Text="{Binding Path=target.excerpt}"
+                       x:Name="txtExcerpt"
+                      ></TextBlock>
+        </RelativePanel>
+    </Grid>
+</UserControl>
